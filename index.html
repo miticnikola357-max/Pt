@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Appointment Calendar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="app-title">
+        <div>
+          <p class="eyebrow">Month-by-month planner</p>
+          <h1 id="app-title">Appointment Calendar</h1>
+          <p class="hero-copy">
+            Track appointments by date, see the total for the selected month, and
+            review how many appointments each client has scheduled.
+          </p>
+        </div>
+        <div class="hero-card" aria-live="polite">
+          <span class="stat-label">Monthly appointments</span>
+          <strong id="monthly-total">0</strong>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Calendar controls">
+        <button id="previous-month" type="button" aria-label="Previous month">‹</button>
+        <h2 id="current-month">Month Year</h2>
+        <button id="next-month" type="button" aria-label="Next month">›</button>
+      </section>
+
+      <section class="content-grid">
+        <div class="calendar-card">
+          <div class="weekday-row" aria-hidden="true">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+          </div>
+          <div id="calendar-grid" class="calendar-grid" aria-label="Monthly appointment calendar"></div>
+        </div>
+
+        <aside class="sidebar" aria-label="Appointment tools and summary">
+          <form id="appointment-form" class="panel">
+            <h3>Add appointment</h3>
+            <label>
+              Client name
+              <input id="client-name" name="clientName" type="text" placeholder="Example: Alex Morgan" required />
+            </label>
+            <label>
+              Date
+              <input id="appointment-date" name="appointmentDate" type="date" required />
+            </label>
+            <label>
+              Time
+              <input id="appointment-time" name="appointmentTime" type="time" required />
+            </label>
+            <label>
+              Notes
+              <textarea id="appointment-notes" name="appointmentNotes" rows="3" placeholder="Optional details"></textarea>
+            </label>
+            <button type="submit">Save appointment</button>
+          </form>
+
+          <section class="panel" aria-labelledby="client-summary-title">
+            <h3 id="client-summary-title">Appointments by client</h3>
+            <ul id="client-summary" class="summary-list"></ul>
+          </section>
+
+          <section class="panel" aria-labelledby="day-list-title">
+            <h3 id="day-list-title">Selected day</h3>
+            <p id="selected-day-label" class="muted">Choose a date on the calendar.</p>
+            <ul id="selected-day-list" class="appointment-list"></ul>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <template id="appointment-template">
+      <li class="appointment-item">
+        <div>
+          <strong class="appointment-client"></strong>
+          <span class="appointment-meta"></span>
+          <p class="appointment-notes"></p>
+        </div>
+        <button class="delete-appointment" type="button">Delete</button>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>

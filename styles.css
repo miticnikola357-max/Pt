@@ -1,0 +1,355 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --ink: #172033;
+  --muted: #69758a;
+  --primary: #3b6df6;
+  --primary-dark: #244dc3;
+  --accent: #e9efff;
+  --border: #dbe3f0;
+  --danger: #c73645;
+  --shadow: 0 20px 45px rgba(39, 57, 99, 0.12);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #dfe9ff 0, transparent 32rem), var(--bg);
+  color: var(--ink);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.95;
+  margin-bottom: 14px;
+}
+
+.hero-copy {
+  color: var(--muted);
+  max-width: 680px;
+  font-size: 1.05rem;
+}
+
+.hero-card,
+.panel,
+.calendar-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(219, 227, 240, 0.9);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card {
+  min-width: 220px;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-label {
+  color: var(--muted);
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+#monthly-total {
+  color: var(--primary);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.controls {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.controls button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-size: 2rem;
+  height: 48px;
+  line-height: 1;
+  width: 48px;
+}
+
+.controls h2 {
+  margin: 0;
+  min-width: min(360px, 60vw);
+  text-align: center;
+}
+
+.content-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) 360px;
+}
+
+.calendar-card {
+  padding: 20px;
+}
+
+.weekday-row,
+.calendar-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.weekday-row {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.day {
+  background: #f8faff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--ink);
+  min-height: 116px;
+  padding: 10px;
+  text-align: left;
+  transition: 0.18s ease;
+  width: 100%;
+}
+
+.day:hover,
+.day:focus-visible,
+.day.selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(59, 109, 246, 0.12);
+  outline: none;
+}
+
+.day.outside-month {
+  opacity: 0.38;
+}
+
+.day-number {
+  align-items: center;
+  display: flex;
+  font-weight: 800;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.badge {
+  background: var(--primary);
+  border-radius: 999px;
+  color: white;
+  display: inline-grid;
+  font-size: 0.75rem;
+  min-width: 24px;
+  padding: 3px 7px;
+  place-items: center;
+}
+
+.day-clients {
+  color: var(--muted);
+  display: grid;
+  font-size: 0.8rem;
+  gap: 4px;
+}
+
+.sidebar {
+  display: grid;
+  gap: 18px;
+}
+
+.panel {
+  padding: 20px;
+}
+
+.panel h3 {
+  margin-bottom: 14px;
+}
+
+label {
+  color: var(--muted);
+  display: grid;
+  font-size: 0.92rem;
+  font-weight: 700;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+input,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--ink);
+  padding: 11px 12px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+form button,
+.delete-appointment {
+  border: 0;
+  border-radius: 12px;
+  font-weight: 800;
+  padding: 11px 14px;
+}
+
+form button {
+  background: var(--primary);
+  color: white;
+  width: 100%;
+}
+
+form button:hover {
+  background: var(--primary-dark);
+}
+
+.summary-list,
+.appointment-list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.summary-list li,
+.appointment-item {
+  background: var(--accent);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.summary-list li {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-list strong {
+  color: var(--primary);
+}
+
+.appointment-item {
+  align-items: start;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.appointment-meta,
+.appointment-notes,
+.muted {
+  color: var(--muted);
+}
+
+.appointment-meta {
+  display: block;
+  font-size: 0.88rem;
+  margin-top: 2px;
+}
+
+.appointment-notes {
+  font-size: 0.9rem;
+  margin: 8px 0 0;
+}
+
+.delete-appointment {
+  background: #ffe9ec;
+  color: var(--danger);
+  flex: 0 0 auto;
+}
+
+.empty-state {
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    display: grid;
+  }
+
+  .content-grid {
+    display: grid;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding: 20px 0;
+  }
+
+  .calendar-card {
+    overflow-x: auto;
+  }
+
+  .weekday-row,
+  .calendar-grid {
+    min-width: 680px;
+  }
+}
